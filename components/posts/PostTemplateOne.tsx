@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { format } from "date-fns";
 import ShareButtons from "./ShareButtons";
-import Link from "next/Link";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import PostTitle from "./PostTitle";

@@ -1,6 +1,6 @@
 import React from "react";
 import PageWrapper from "../components/privacy-contact-abous/PageWrapper";
-import Link from "next/Link";
+import Link from "next/link";
 
 function Page404() {
   return (

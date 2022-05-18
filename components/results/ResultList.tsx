@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import Skeleton from '../common/Skeleton';
 import useFormatNewsItemData from '../../hooks/useFormatNewsItemData';
 import Pagination from '../common/Pagination';
-import Link from 'next/Link';
+import Link from 'next/link';
 import Image from 'next/image';
 import truncateString from '../../utils/helpers/truncateString';
 import request from 'graphql-request';

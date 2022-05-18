@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import Image from "next/image";
 import logo from "../../public/ww-star-272x90.png";
-import Link from "next/Link";
+import Link from "next/link";
 
 interface LogoProps {
   size?: "sm" | "xl";

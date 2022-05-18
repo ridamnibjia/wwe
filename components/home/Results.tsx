@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Image from "next/image";
-import Link from "next/Link";
+import Link from "next/link";
 import { useMemo } from "react";
 import truncateString from "../../utils/helpers/truncateString";
 import { ThemeContext } from "../context/themeContext";

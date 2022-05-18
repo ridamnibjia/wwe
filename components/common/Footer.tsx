@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import Link from "next/Link";
+import Link from "next/link";
 import Logo from "./Logo";
 import { SOCIAL_LINKS } from "../../utils/constants/links";
 import { RiFacebookFill, RiInstagramFill, RiInstagramLine, RiLinkedinBoxLine, RiLinkedinLine, RiTwitterLine } from "react-icons/ri";

@@ -2,7 +2,7 @@ import { Dispatch, Fragment, FunctionComponent, SetStateAction, useMemo, useStat
 import { Dialog, Transition } from "@headlessui/react";
 import { RiMenuLine, RiCloseFill, RiCloseLine, RiFacebookFill, RiArrowRightSLine } from "react-icons/ri";
 import Logo from "./Logo";
-import Link from "next/Link";
+import Link from "next/link";
 import { SOCIAL_LINKS } from "../../utils/constants/links";
 import dynamic from "next/dynamic";
 

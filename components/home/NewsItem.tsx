@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Image from "next/image";
-import Link from "next/Link";
+import Link from "next/link";
 import NewsBadge from "../common/NewsBadge";
 import truncateString from "../../utils/helpers/truncateString";
 import Skeleton from "../common/Skeleton";

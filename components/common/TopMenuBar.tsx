@@ -1,4 +1,4 @@
-import Link from 'next/Link'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useContext } from 'react'
 import { ThemeContext } from '../context/themeContext'

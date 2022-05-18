@@ -1,5 +1,5 @@
 import React, { ReactChild } from "react";
-import Link from "next/Link";
+import Link from "next/link";
 
 function NextLink({
   children,

@@ -5,7 +5,7 @@ import { GrAchievement, GrChatOption, GrList } from "react-icons/gr";
 import { VscListSelection } from "react-icons/vsc";
 import { BsSearch } from "react-icons/bs";
 import Logo from "./Logo";
-import Link from "next/Link";
+import Link from "next/link";
 import { SOCIAL_LINKS } from "../../utils/constants/links";
 import dynamic from "next/dynamic";
 import { FaChevronDown, FaChevronRight } from "react-icons/fa";
