@@ -22,7 +22,7 @@ interface ResultListProps {
 }
 
 const fetcher = (query: string) =>
-  request(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!, query);
+  request("https://api.wrestlingworld.co/graphql"!, query);
 
 function ResultList({ query, emptyResultsLabel }: ResultListProps) {
   const [offset, setOffset] = useState<number>(0);

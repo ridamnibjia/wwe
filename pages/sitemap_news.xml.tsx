@@ -13,7 +13,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     production: "https://wrestlingworld.co",
   }[process.env.NODE_ENV];
 
-  const { posts } = await request(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!, GRAPHQL_QUERIES.GET_SITEMAP_URI_POSTS);
+  const { posts } = await request("https://api.wrestlingworld.co/graphql"!, GRAPHQL_QUERIES.GET_SITEMAP_URI_POSTS);
 
   const allPages = [];
 

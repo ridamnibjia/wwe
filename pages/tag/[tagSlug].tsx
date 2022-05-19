@@ -21,7 +21,7 @@ import { MatchContext } from "../../components/context/rightSectionData";
 
 
 export const fetcher = (query: string) =>
-  request(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!, query);
+  request("https://api.wrestlingworld.co/graphql"!, query);
 
 interface TagPageProps {
   slugData: { [any: string]: any };
@@ -181,7 +181,7 @@ function TagPage({ slugData,
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { tags } = await request(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!, GRAPHQL_QUERIES.GET_ALL_TAGS);
+  const { tags } = await request("https://api.wrestlingworld.co/graphql"!, GRAPHQL_QUERIES.GET_ALL_TAGS);
   const paths = tags.nodes.map((tag: { [any: string]: any }) => ({
     params: { tagSlug: tag.slug },
   }));
@@ -192,7 +192,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const tagSlug = params!.tagSlug as string;
 
-  const { tags } = await request(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!, GRAPHQL_QUERIES.GET_TAG_DATA(tagSlug));
+  const { tags } = await request("https://api.wrestlingworld.co/graphql"!, GRAPHQL_QUERIES.GET_TAG_DATA(tagSlug));
 
   if (tags?.nodes.length === 0) {
     return { notFound: true };

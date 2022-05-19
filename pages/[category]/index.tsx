@@ -23,7 +23,7 @@ import { MatchContext } from '../../components/context/rightSectionData';
 
 
 export const fetcher = (query: string) =>
-  request(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!, query);
+  request("https://api.wrestlingworld.co/graphql"!, query);
 
 interface CategoryPageProps {
   categoryData: { [any: string]: any };
@@ -193,7 +193,7 @@ function CategoryPage({ specialEvents,
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { categories } = await request(
-    process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!,
+    "https://api.wrestlingworld.co/graphql"!,
     GRAPHQL_QUERIES.GET_ALL_CATEGORIES
   );
   const paths = categories.nodes.map((category: { [any: string]: any }) => ({
@@ -207,7 +207,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const categorySlug = params!.category as string;
 
   const { categories } = await request(
-    process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!,
+    "https://api.wrestlingworld.co/graphql"!,
     GRAPHQL_QUERIES.GET_CATEGORY_DATA(categorySlug)
   );
   console.log(

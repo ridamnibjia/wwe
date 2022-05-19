@@ -28,7 +28,7 @@ const YoutubePlaylist = dynamic(
 
 
 export const fetcher = (query: string) =>
-  request(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!, query);
+  request("https://api.wrestlingworld.co/graphql"!, query);
 interface SearchPageProps {
   resultsData: { [any: string]: any };
   specialEvents: Array<string>;

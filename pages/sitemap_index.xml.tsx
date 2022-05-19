@@ -29,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     });
 
   staticPages.push(baseUrl + "/");
-  const { categories } = await request(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!, GRAPHQL_QUERIES.GET_ALL_CATEGORIES);
+  const { categories } = await request("https://api.wrestlingworld.co/graphql"!, GRAPHQL_QUERIES.GET_ALL_CATEGORIES);
 
   const categoriesPages = categories.nodes.map(({ slug }: { slug: string }) => `${baseUrl}/${slug}`);
 

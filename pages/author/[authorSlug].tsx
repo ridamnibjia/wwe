@@ -33,7 +33,7 @@ interface CategoryPageProps {
 }
 
 export const fetcher = (query: string) =>
-  request(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!, query);
+  request("https://api.wrestlingworld.co/graphql"!, query);
 
 function CategoryPage({ authorData,
   ppvArticle,
@@ -188,7 +188,7 @@ function CategoryPage({ authorData,
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { users } = await request(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!, GRAPHQL_QUERIES.GET_ALL_AUTHORS);
+  const { users } = await request("https://api.wrestlingworld.co/graphql"!, GRAPHQL_QUERIES.GET_ALL_AUTHORS);
   const paths = users.nodes.map((author: { [any: string]: any }) => ({
     params: { authorSlug: author.slug },
   }));
@@ -200,7 +200,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const authorSlug = params!.authorSlug as string;
 
   const { users } = await request(
-    process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!,
+    "https://api.wrestlingworld.co/graphql"!,
     GRAPHQL_QUERIES.GET_AUTHOR_DATA(authorSlug)
   );
 

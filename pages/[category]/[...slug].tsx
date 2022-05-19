@@ -58,7 +58,7 @@ interface SlugProps {
 }
 
 const fetcher = (query: string) =>
-  request(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!, query);
+  request("https://api.wrestlingworld.co/graphql"!, query);
 
 function Slug({
   postData,
@@ -91,12 +91,12 @@ function Slug({
         ? nextPosts[nextPosts.length - 1].databaseId
         : postData.databaseId;
     const cursor = await request(
-      process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!,
+      "https://api.wrestlingworld.co/graphql"!,
       GRAPHQL_QUERIES.GET_POST_CURSOR(lastPostId)
     );
     if (cursor) {
       const { posts: nextPost } = await request(
-        process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!,
+        "https://api.wrestlingworld.co/graphql"!,
         GRAPHQL_QUERIES.GET_NEXT_POST(cursor.posts.pageInfo.endCursor)
       );
       const postContentArray =
@@ -140,7 +140,7 @@ function Slug({
     if (!newsAndRumorsForHome) return;
     setIsLoadingMoreNews(true);
     request(
-      process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!,
+      "https://api.wrestlingworld.co/graphql"!,
       GRAPHQL_QUERIES.LOAD_MORE_NEWS_AND_RUMORS_ARTICLES(
         actualCursor || newsAndRumorsForHome.posts.cursor
       )
@@ -347,7 +347,7 @@ function Slug({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { posts: postsLists } = await request(
-    process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!,
+    "https://api.wrestlingworld.co/graphql"!,
     GRAPHQL_QUERIES.GET_URI_POSTS
   );
 
@@ -388,7 +388,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
   const numPaginationPost = parseInt(number);
   const { post } = await request(
-    process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!,
+    "https://api.wrestlingworld.co/graphql"!,
     GRAPHQL_QUERIES.GET_POST(slug)
   );
 
@@ -431,7 +431,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const categorySlug = params!.category as string;
 
   const { categories } = await request(
-    process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!,
+    "https://api.wrestlingworld.co/graphql"!,
     GRAPHQL_QUERIES.GET_CATEGORY_DATA(categorySlug)
   );
   console.log(

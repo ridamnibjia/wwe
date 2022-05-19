@@ -32,7 +32,7 @@ const FooterNews = dynamic(() => import('../components/home/FooterNews'));
 const Results = dynamic(() => import('../components/home/Results'));
 
 export const fetcher = (query: string) =>
-  request(process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!, query);
+  request("https://api.wrestlingworld.co/graphql"!, query);
 
 interface IndexPageProps {
   featuredArticles: { [any: string]: any };
@@ -78,7 +78,7 @@ function IndexPage({
     if (!newsAndRumors) return;
     setIsLoadingMoreNews(true);
     request(
-      process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT!,
+      "https://api.wrestlingworld.co/graphql"!,
       GRAPHQL_QUERIES.LOAD_MORE_NEWS_AND_RUMORS_ARTICLES(
         actualCursor || newsAndRumors.posts.cursor
       )
